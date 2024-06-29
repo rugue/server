@@ -5,4 +5,4 @@ services:
     region: us
     plan: free
     buildCommand: "npm install && npm run build"
-    startCommand: "node dist/index.js"
+    startCommand: "npm run start:prod"
