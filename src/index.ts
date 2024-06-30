@@ -23,7 +23,7 @@ app.get("/api/hello", async (req: Request, res: Response) => {
 
   try {
     const response = await axios.get(
-      `https://ipinfo.io/${clientIp}/json?token=${IP_INFO_TOKEN}`
+      `https://ipinfo.io/${transformedClientIp}/json?token=${IP_INFO_TOKEN}`
     );
 
     console.log({ data: response?.data });
