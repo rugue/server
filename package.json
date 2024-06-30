@@ -4,7 +4,7 @@
   "description": "A simple server",
   "main": "dist/index.js",
   "scripts": {
-    "start": "ts-node-dev --no-debug src/index.ts",
+    "start": "ts-node-dev --respawn --env-file=.env --no-debug src/index.ts",
     "prebuild": "rimraf dist",
     "build": "tsc",
     "start:prod": "node dist/index.js",
