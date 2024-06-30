@@ -33,7 +33,7 @@ app.get("/api/hello", async (req: Request, res: Response) => {
     });
   } catch (error) {
     res.json({
-      client_ip: clientIp,
+      client_ip: transformedClientIp,
       location: "Unable to determine location",
       greeting: `Hello, ${visitorName}!`,
     });
