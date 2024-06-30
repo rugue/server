@@ -13,7 +13,9 @@ app.get("/api/hello", async (req: Request, res: Response) => {
     const response = await axios.get(
       `https://ipinfo.io/${clientIp}/json?token=your_ipinfo_token`
     );
+
     const location = response.data.city || "Unknown location";
+
     res.json({
       client_ip: clientIp,
       location,
