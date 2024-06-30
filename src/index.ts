@@ -7,8 +7,6 @@ const port = process.env.PORT || 8000;
 
 const IP_INFO_TOKEN = process.env.IP_INFO_TOKEN;
 
-console.log({ IP_INFO_TOKEN });
-
 app.get("/api/hello", async (req: Request, res: Response) => {
   const visitorName = req.query.visitor_name || "Visitor";
   const clientIp =
@@ -28,7 +26,9 @@ app.get("/api/hello", async (req: Request, res: Response) => {
       `https://ipinfo.io/${clientIp}/json?token=${IP_INFO_TOKEN}`
     );
 
-    const location = response.data.city || "Unknown location";
+    console.log({ data: response?.data });
+
+    const location = response?.data?.city || "Unknown location";
 
     res.json({
       client_ip: transformedClientIp,
