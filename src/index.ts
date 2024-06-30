@@ -5,6 +5,10 @@ import axios from "axios";
 const app = express();
 const port = process.env.PORT || 8000;
 
+const IP_INFO_TOKEN = process.env.IP_INFO_TOKEN;
+
+console.log({ IP_INFO_TOKEN });
+
 app.get("/api/hello", async (req: Request, res: Response) => {
   const visitorName = req.query.visitor_name || "Visitor";
   const clientIp =
@@ -21,7 +25,7 @@ app.get("/api/hello", async (req: Request, res: Response) => {
 
   try {
     const response = await axios.get(
-      `https://ipinfo.io/${clientIp}/json?token=${process.env.IP_INFO_TOKEN}`
+      `https://ipinfo.io/${clientIp}/json?token=${IP_INFO_TOKEN}`
     );
 
     const location = response.data.city || "Unknown location";
